@@ -1,0 +1,41 @@
+{
+    "name": "rapidez/strapi",
+    "description": "Rapidez Strapi",
+    "keywords": [
+        "rapidez"
+    ],
+    "homepage": "https://rapidez.io",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Roy Duineveld",
+            "email": "royduineveld@gmail.com",
+            "homepage": "https://royduineveld.nl",
+            "role": "Developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^7.4",
+        "illuminate/database": "^8.0",
+        "illuminate/support": "^8.0",
+        "illuminate/view": "^8.0",
+        "rapidez/core": "~0.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rapidez\\Strapi\\": "src"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Rapidez\\Strapi\\StrapiServiceProvider"
+            ]
+        }
+    }
+}
