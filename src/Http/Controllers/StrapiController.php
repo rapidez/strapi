@@ -11,7 +11,7 @@ class StrapiController extends Controller
 {
     public function __invoke($endpoint, $view, $getFirst = false)
     {
-        $data = Cache::remember('strapi.'.$endpoint, config('strapi.cache'), function () {
+        $data = Cache::remember('strapi.'.$endpoint, config('strapi.cache'), function () use ($endpoint) {
             return json_decode(Http::get(config('strapi.url').'/'.$endpoint)->body());
         });
 
