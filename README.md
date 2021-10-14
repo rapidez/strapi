@@ -17,17 +17,17 @@ STRAPI_URL=http://localhost:1337
 
 ### Routes
 
-Register some routes within `routes/web.php` with the content types you'd like. The first parameter is the endpoint, the second the view to render and the last one to only get the first result from the response. For example:
+Register some routes within `routes/web.php` and use the `strapi()` helper function to get the data. This function accepts the endpoint as parameter and just calls that endpoint and caches the response. For example:
 ```php
 Route::get('blog', function ($location) {
-    return (new StrapiController)('blogs', 'blog');
+    return view('strapi.blog', ['data' => strapi('blogs')])
 });
 
 Route::get('blog/{slug}', function ($slug) {
-    return (new StrapiController)('blogs?slug='.$slug, 'blog-item', true);
+    return view('strapi.blog-item', ['data' => strapi('blogs?slug='.$slug)[0]])
 });
 ```
-All data will be available within the `$data` variable in the view. For example with `{{ $data->name }}` you'll get the content of the name field.
+And use the data in your views. For example with `{{ $data->name }}` you'll get the content of the name field.
 
 ### Dynamic zones
 
