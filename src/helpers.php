@@ -15,3 +15,18 @@ if (! function_exists('strapi')) {
         return $data;
     }
 }
+
+if (! function_exists('strapi_image')) {
+    function strapi_image($image, $size = null)
+    {
+        if (!$image) {
+            return null;
+        }
+
+        if (!$size) {
+            return config('strapi.url').$image->url;
+        }
+
+        return config('strapi.url').($image->formats->{$size}->url ?? $image->url);
+    }
+}
