@@ -4,13 +4,13 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 if (! function_exists('strapi')) {
-    function strapi($endpoint)
+    function strapi($endpoint, $abortWhenNotFound = true)
     {
         $data = Cache::remember('strapi.'.$endpoint, config('strapi.cache'), function () use ($endpoint) {
             return json_decode(Http::get(config('strapi.url').'/'.$endpoint)->body());
         });
 
-        abort_if(!$data, 404);
+        abort_if(!$data && $abortWhenNotFound, 404);
 
         return $data;
     }
