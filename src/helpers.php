@@ -7,7 +7,9 @@ if (! function_exists('strapi')) {
     function strapi($endpoint, $abortWhenNotFound = true)
     {
         $data = Cache::remember('strapi.'.$endpoint, config('strapi.cache'), function () use ($endpoint) {
-            return json_decode(Http::get(config('strapi.url').'/'.$endpoint)->body());
+            $response = Http::get(config('strapi.url').'/'.$endpoint);
+            abort_if($response->failed(), 404);
+            return json_decode($response->body());
         });
 
         abort_if(!$data && $abortWhenNotFound, 404);
