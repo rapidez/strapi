@@ -4,20 +4,17 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
 if (! function_exists('strapi')) {
-    function strapi($endpoint, $singleType = false, $abortWhenNotFound = true)
+    function strapi($endpoint, $params = 'default', $abortWhenNotFound = true)
     {
-        $params = [];
-
-        if (str_contains($endpoint, '?')) {
-            $filters = substr($endpoint, strpos($endpoint, '?') + 1);
-            parse_str($filters, $params);
+        if (is_string($params)) {
+            $params = collect(config('strapi.paramgroup.'.$params))
+                ->map(fn ($value) => config($value))
+                ->toArray();
         }
 
-        if (config('strapi.multisite') && !$singleType) {
-            $params['_where[store][store_code]'] = config('rapidez.store_code');
-        }
+        $cacheKey = 'strapi.'.$endpoint.'.'.json_encode($params);
 
-        $data = Cache::remember('strapi.'.$endpoint, config('strapi.cache'), function () use ($endpoint, $params) {
+        $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params) {
             $response = Http::get(config('strapi.url').'/'.$endpoint, $params);
             abort_if($response->failed(), 404);
             return json_decode($response->body());

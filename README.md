@@ -37,10 +37,6 @@ When you're using a dynamic zone within your content type you can render them wi
 ```
 This tries to render views with the same name as the component and the data will be available with the `$data` variable.
 
-## Multisite
-
-When you've got multiple store views and you want different content for them, you can set `STRAPI_MULTISITE=true` in your .env. The strapi helper will automaticly look for a field `[store][store_code]` on your collections.
-
 ## Cache
 
 By default all responses from Strapi will be cached for 1 hour. You can change that with `STRAPI_CACHE` in your `.env`
