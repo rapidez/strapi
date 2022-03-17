@@ -14,6 +14,11 @@ if (! function_exists('strapi')) {
 
         $cacheKey = 'strapi.'.$endpoint.'.'.json_encode($params);
 
+        if (str_contains($endpoint, '?')) {
+            parse_str(parse_url($endpoint, PHP_URL_QUERY), $parsedParams);
+            $params = array_merge($parsedParams, $params);
+        }
+
         $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params) {
             $response = Http::get(config('strapi.url').'/'.$endpoint, $params);
             abort_if($response->failed(), 404);
