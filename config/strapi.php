@@ -12,7 +12,7 @@ return [
     // run through the config() helper method.
     'paramgroup' => [
         // 'default' => [
-        //     '_where[store][store_code]' => 'rapidez.store_code',
+        //     'stores.store_code' => 'rapidez.store_code',
         // ],
     ],
 ];
