@@ -4,7 +4,6 @@ namespace Rapidez\Strapi;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Rapidez\Core\RapidezFacade as Rapidez;
 use Rapidez\Strapi\ViewDirectives\DynamiczoneDirective;
 
 class StrapiServiceProvider extends ServiceProvider
