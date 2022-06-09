@@ -19,9 +19,9 @@ if (! function_exists('strapi')) {
             $params = array_merge($parsedParams, $params);
         }
 
-        $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params) {
+        $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params, $abortWhenNotFound) {
             $response = Http::get(config('strapi.url').'/'.$endpoint, $params);
-            abort_if($response->failed(), 404);
+            abort_if($response->failed() && $abortWhenNotFound, 404);
             return json_decode($response->body());
         });
 
