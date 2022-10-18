@@ -5,6 +5,8 @@ return [
 
     'cache' => env('STRAPI_CACHE', 3600), // 1 hour
 
+    'version' => env('STRAPI_VERSION', 3), // 1 hour
+
     // A paramgroup is useful so you do not have to repeat yourself,
     // choose a key which can be passed as a string to the strapi()
     // helper method and specify the parameters you'd like.
