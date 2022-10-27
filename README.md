@@ -37,6 +37,12 @@ When you're using a dynamic zone within your content type you can render them wi
 ```
 This tries to render views with the same name as the component and the data will be available with the `$data` variable.
 
+There is also a possibility to pass extra data to the template. For this you can pass an array as the second parameter:
+```
+@dynamiczone($data->content, ['foo' => 'bar', 'article' => $data])
+```
+The above example makes the variables `$foo` and `$article` available in the template
+
 ## Cache
 
 By default all responses from Strapi will be cached for 1 hour. You can change that with `STRAPI_CACHE` in your `.env`

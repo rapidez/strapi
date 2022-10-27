@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\View;
 
 class DynamiczoneDirective
 {
-    public function render($components)
+    public function render($components, $data = [])
     {
         $html = '';
 
@@ -14,7 +14,7 @@ class DynamiczoneDirective
             $view = 'strapi.'.$component->__component;
 
             if (View::exists($view)) {
-                $html .= view($view, ['data' => $component]);
+                $html .= view($view, array_merge($data, ['data' => $component]));
             } elseif (!app()->environment('production')) {
                 $html .= '<hr>'.__('View not found (:view).', compact('view')).'<hr>';
             }
