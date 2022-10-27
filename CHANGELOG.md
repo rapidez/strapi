@@ -1,6 +1,12 @@
 # Changelog
 
-## [Unreleased](https://github.com/org/repo/compare/0.7.1...master)
+## [Unreleased](https://github.com/org/repo/compare/0.8.0...master)
+
+## [0.8.0](https://github.com/org/repo/compare/0.7.1...0.8.0) - 2022-10-27
+
+### Added
+
+- Possibility to pass extra data to dynamic zone (#6)
 
 ## [0.7.1](https://github.com/org/repo/compare/0.7.0...0.7.1) - 2022-06-09
 
