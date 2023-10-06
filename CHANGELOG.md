@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/0.8.1...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/0.9.0...master)
+## [0.9.0](https://github.com/rapidez/strapi/releases/tag/0.9.0) - 2023-10-06
+
+### Added
+
+- Http macro for strapi (#7)
+
 ## [0.8.1](https://github.com/rapidez/strapi/releases/tag/0.8.1) - 2023-09-22
 
 ### Added
