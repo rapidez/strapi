@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 
@@ -20,9 +21,11 @@ if (! function_exists('strapi')) {
         }
 
         $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params, $abortWhenNotFound) {
-            $response = Http::get(config('strapi.url').'/'.$endpoint, $params);
+            /** @var Response $response */
+            $response = Http::strapi()->get($endpoint, $params);
             abort_if($response->failed() && $abortWhenNotFound, 404);
-            return json_decode($response->body());
+
+            return $response->object();
         });
 
         abort_if(!$data && $abortWhenNotFound, 404);

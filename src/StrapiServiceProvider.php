@@ -2,7 +2,9 @@
 
 namespace Rapidez\Strapi;
 
+use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\ServiceProvider;
 use Rapidez\Strapi\ViewDirectives\DynamiczoneDirective;
 
@@ -21,5 +23,23 @@ class StrapiServiceProvider extends ServiceProvider
         });
 
         $this->app->bind('dynamiczone-directive', DynamiczoneDirective::class);
+
+        Http::macro('strapi', function ($identifier = null, $password = null, $jwt = null): PendingRequest {
+            /** @var PendingRequest $client */
+            $client = Http::baseUrl(config('strapi.url'))->acceptJson();
+
+            if ($identifier && $password) {
+                $jwt = $client->post('/auth/local', [
+                    'identifier' => $identifier,
+                    'password' => $password,
+                ])->throw()->json('jwt');
+            }
+
+            if ($jwt) {
+                $client = $client->withToken($jwt);
+            }
+
+            return $client;
+        });
     }
 }
