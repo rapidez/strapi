@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/0.9.0...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/0.10.0...master)
+## [0.10.0](https://github.com/rapidez/strapi/releases/tag/0.10.0) - 2023-11-30
+
+### Changed
+
+- Move config file to Rapidez folder (#8)
+
 ## [0.9.0](https://github.com/rapidez/strapi/releases/tag/0.9.0) - 2023-10-06
 
 ### Added
