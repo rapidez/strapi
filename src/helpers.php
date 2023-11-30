@@ -8,7 +8,7 @@ if (! function_exists('strapi')) {
     function strapi($endpoint, $params = 'default', $abortWhenNotFound = true)
     {
         if (is_string($params)) {
-            $params = collect(config('strapi.paramgroup.'.$params))
+            $params = collect(config('rapidez.strapi.paramgroup.'.$params))
                 ->map(fn ($value) => config($value))
                 ->toArray();
         }
@@ -20,7 +20,7 @@ if (! function_exists('strapi')) {
             $params = array_merge($parsedParams, $params);
         }
 
-        $data = Cache::remember($cacheKey, config('strapi.cache'), function () use ($endpoint, $params, $abortWhenNotFound) {
+        $data = Cache::remember($cacheKey, config('rapidez.strapi.cache'), function () use ($endpoint, $params, $abortWhenNotFound) {
             /** @var Response $response */
             $response = Http::strapi()->get($endpoint, $params);
             abort_if($response->failed() && $abortWhenNotFound, 404);
@@ -42,9 +42,9 @@ if (! function_exists('strapi_image')) {
         }
 
         if (!$size) {
-            return config('strapi.url').$image->url;
+            return config('rapidez.strapi.url').$image->url;
         }
 
-        return config('strapi.url').($image->formats->{$size}->url ?? $image->url);
+        return config('rapidez.strapi.url').($image->formats->{$size}->url ?? $image->url);
     }
 }
