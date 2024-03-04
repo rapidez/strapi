@@ -12,7 +12,7 @@ class StrapiServiceProvider extends ServiceProvider
 {
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__.'/../config/strapi.php', 'rapidez.strapi');
+        $this->mergeConfigFrom(__DIR__.'/../config/rapidez/strapi.php', 'rapidez.strapi');
 
         $this->publishes([
             __DIR__.'/../config/rapidez/strapi.php' => config_path('rapidez/strapi.php'),
