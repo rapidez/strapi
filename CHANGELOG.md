@@ -1,6 +1,13 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/0.10.0...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/0.10.1...master)
+## [0.10.1](https://github.com/rapidez/strapi/releases/tag/0.10.1) - 2024-03-04
+
+### Fixed
+
+-  Fix config path (#10)
+
+
 ## [0.10.0](https://github.com/rapidez/strapi/releases/tag/0.10.0) - 2023-11-30
 
 ### Changed
