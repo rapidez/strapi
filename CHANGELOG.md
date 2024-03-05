@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/0.10.1...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/1.0.0...master)
+## [1.0.0](https://github.com/rapidez/strapi/releases/tag/1.0.0) - 2024-03-05
+
+### Added
+
+- Rapidez v2 support (#9)
+
 ## [0.10.1](https://github.com/rapidez/strapi/releases/tag/0.10.1) - 2024-03-04
 
 ### Fixed
