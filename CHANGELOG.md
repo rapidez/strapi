@@ -1,6 +1,12 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/2.0.0...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/3.0.0...master)
+## [3.0.0](https://github.com/rapidez/strapi/releases/tag/3.0.0) - 2025-04-10
+
+### Changed
+
+- Handle the Laravel requirement through the core requirement (27c5666)
+
 ## [2.0.0](https://github.com/rapidez/strapi/releases/tag/2.0.0) - 2024-05-28
 
 ### Added
