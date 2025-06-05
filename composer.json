@@ -18,7 +18,7 @@
     "prefer-stable": true,
     "require": {
         "php": "^8.0",
-        "rapidez/core": "~0.54|^1.0|^2.0|^3.0"
+        "rapidez/core": "^4.0"
     },
     "autoload": {
         "psr-4": {
