@@ -1,6 +1,14 @@
 # Changelog 
 
-[Unreleased changes](https://github.com/rapidez/strapi/compare/4.0.0...master)
+[Unreleased changes](https://github.com/rapidez/strapi/compare/5.0.0...master)
+## [5.0.0](https://github.com/rapidez/strapi/releases/tag/5.0.0) - 2026-09-10
+
+### Fixed
+
+- Rapidez v5 support (28e9b1d)
+
+
+
 ## [4.0.0](https://github.com/rapidez/strapi/releases/tag/4.0.0) - 2025-06-05
 
 ### Added
